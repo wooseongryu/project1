@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from datetime import datetime
 
 
 def index_view(request):
-    return render(request, 'menus/index.html')
+    value = datetime.now().date()
+    context = {"today":value}
+    return render(request, 'menus/index.html', context=context)
